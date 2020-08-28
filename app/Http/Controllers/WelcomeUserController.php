@@ -1,0 +1,20 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class WelcomeUserController extends Controller
+{
+    //
+    public function __invoke($name, $nickname = null)
+    {
+        if ($nickname) {
+            // return "Bienvenido {$name}, tu apodo es : {$nickname}";
+            return view('saludos',['name' => $name, 'nickname' => $nickname]);
+        } else {
+            // return "Bienvenido {$name}, no tienes apodo";
+            return view('saludos', ['name' => $name]);
+        }
+    }
+}
